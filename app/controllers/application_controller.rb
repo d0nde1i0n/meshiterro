@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # サインイン後に遷移するページの指定
   def after_sign_in_path_for(resourse)
-    about_path
+    post_images_path
   end
 
   # サインアウト後に遷移するページの指定
