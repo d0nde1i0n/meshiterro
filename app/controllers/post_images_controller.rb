@@ -21,6 +21,12 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.find(params[:id])
   end
 
+  def destroy
+    @post_image = PostImage.find(params[:id])
+    @post_image.delete
+    redirect_to post_images_path
+  end
+
   private
   # ストロングパラメータ
   # フォームで入力されたでテータが、投稿データとして許可されているパラメータであることをチェック

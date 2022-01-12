@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users #deviceをしようする際にURLとして、usersを含むことを示す
 
   #resourcesコマンドで自動生成するルーティングをonlyオプションで制限
-  resources :post_images,only:[:new,:create,:index,:show]
+  resources :post_images,only:[:new,:create,:index,:show,:destroy]
 
   get "homes/about" => "homes#about",as: "about"
 
