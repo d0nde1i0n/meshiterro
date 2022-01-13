@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   #resourcesコマンドで自動生成するルーティングをonlyオプションで制限
   resources :post_images,only:[:new,:create,:index,:show,:destroy] do
+    resource :favorites,only:[:create,:destroy]#いいねは投稿画像の子要素となる(nest)
+
     resources :post_comments,only:[:create,:destroy]#コメントは投稿画像の子要素となる(nest)
 
   end

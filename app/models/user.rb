@@ -6,7 +6,9 @@ class User < ApplicationRecord
 
   # PostImage,PostCommentモデルとの関連付け
   has_many :post_images, dependent: :destroy
-  has_many :post_comment, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites,dependent: :destroy
+
   #ActiveStorageに"profile_image"という名前のプロフィール画像を保存する設定
   has_one_attached :profile_image
 
