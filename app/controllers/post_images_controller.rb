@@ -17,7 +17,8 @@ class PostImagesController < ApplicationController
  end
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page])
+    # pageは、gem「kaminari」によってしよう可能となったメソッド
   end
 
   def show
