@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  # ログインインしていない場合、トップページ以外を表示させない処理
+  before_action :authenticate_user!,except:[:top]
+    # 「:authenticate_user!」はログイン認証されていなければ、ログイン画面にリダイレクトする機能
+
 
   # devise_controller使用前に、実施する処理の条件
   before_action :configure_permited_parameters,if: :devise_controller?
