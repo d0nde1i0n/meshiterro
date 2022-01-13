@@ -1,14 +1,7 @@
-<% @post_images.each do |post_image| %>
-<div>
-  <!--表示画像クリック後に詳細画面へ遷移させる処理-->
-  <%= link_to post_image_path(post_image.id) do %>
-    <%= image_tag post_image.get_image %>
-  <% end %>
+<!--投稿一覧-->
+<!--部分テンプレートファイル「list」を呼び出す処理-->
+<%= render 'list',post_images: @post_images %>
 
-  <p>投稿ユーザー画像:<%=image_tag post_image.user.get_profile_image("100x100") %></p>
-  <p>ショップ名:<%= post_image.shop_name %></p>
-  <p>説明:<%= post_image.caption %></p>
-  <p>ユーザネーム:<%= post_image.user.name %></p>
-  <p><%= link_to "#{post_image.post_comment.count}コメント",post_image_path(post_image.id) %></p>
-</div>
-<% end %>
+<!--「'list'」は部分テンプレートファイルの格納場所を示すURL-->
+<!--「post_images」は部分テンプレートファイルで使用するローカル変数-->
+<!--「@post_images」はローカル変数に渡すインスタンス変数-->
